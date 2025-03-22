@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wilton SHE Consultants - Integrated Health & Safety Services</title>
+    <style>
+        :root {
+            --primary-color: #e70000;
+            --secondary-color: #971718;
+            --accent-color: #7f7f7f;
+            --light-color: #070707;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --text-light: #f8f9fa;
+            --section-padding: 80px 0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 10px 0;
+            background-color: rgba(231, 0, 0, 0.95);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-menu {
+            display: flex;
+        }
+
+        .nav-menu li {
+            margin-left: 30px;
+        }
+
+        .nav-menu a {
+            color: white;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent-color);
+        }
+
+        .nav-menu a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover:after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+        /* Hero Section */
+        #home {
+            position: relative;
+            height: 100vh;
+            width: 100vw;
+            background: white;
+            overflow: hidden;
+        }
+
+        .diagonal-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .red-section {
+            position: absolute;
+            background-color: #b20000;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path d="M10,0 L20,0 L20,10 L10,20 L0,20 L0,10 Z" fill="%23a00000"/></svg>');
+            background-size: 20px 20px;
+            width: 40%;
+            height: 200%;
+            top: -50%;
+            left: -10%;
+            transform: rotate(45deg);
+            z-index: 1;
+        }
+
+        .gray-section {
+            position: absolute;
+            background-color: #666;
+            width: 60%;
+            height: 200%;
+            bottom: -50%;
+            right: -20%;
+            transform: rotate(45deg);
+            z-index: 2;
+        }
+
+        .logo-container {
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .logo-placeholder {
+            width: 100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-placeholder .w {
+            font-size: 60px;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .logo-placeholder .flame {
+            position: absolute;
+            color: #b20000;
+            font-size: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .company-name {
+            font-size: 28px;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .company-tagline {
+            font-size: 12px;
+            padding-top: 5px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .company-tagline:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #b20000;
+        }
+
+
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background: white;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom right, #971718 50%, gray 50%);
+            z-index: 1;
+        }
+
+        .diagonal-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .red-section {
+            position: absolute;
+            background: linear-gradient(to bottom right, #971718 50%, gray 50%);
+            background-size: 20px 20px;
+            width: 40%;
+            height: 200%;
+            top: -50%;
+            left: -10%;
+            transform: rotate(45deg);
+            z-index: 1;
+        }
+
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('/path/to/hex-pattern.png');
+            /* Replace with actual hex pattern */
+            opacity: 0.3;
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 800px;
+            color: black;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .hero-logo {
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            z-index: 4;
+        }
+
+
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #e70000;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #971718;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+            margin-left: 15px;
+        }
+
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--primary-color);
+        }
+
+        /* About Section */
+        .about {
+            padding: var(--section-padding);
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .about-text {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        /* Services Section */
+        .services {
+            padding: var(--section-padding);
+            background-color: #f5f5f5;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-img {
+            height: 200px;
+            width: 100%;
+            background-color: var(--primary-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 48px;
+        }
+
+        .service-content {
+            padding: 30px;
+        }
+
+        .service-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        .service-content p {
+            margin-bottom: 20px;
+        }
+
+        .service-list {
+            margin-top: 15px;
+        }
+
+        .service-list li {
+            margin-bottom: 8px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .service-list li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* Training Section */
+        .training {
+            padding: var(--section-padding);
+            background-color: white;
+        }
+
+        .training-columns {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .training-column {
+            padding: 30px;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .training-column:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .training-column h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        .training-column ul li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .training-column ul li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+
+        /* Memberships Section */
+        .memberships {
+            padding: var(--section-padding);
+            background-color: #f8f9fa;
+        }
+
+        .membership-logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .membership-logo {
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-width: 180px;
+            min-height: 120px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .membership-logo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .membership-logo span {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .membership-logo p {
+            font-size: 14px;
+            text-align: center;
+            color: var(--text-color);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: var(--section-padding);
+            background-color: white;
+        }
+
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .contact-info {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            margin-right: 20px;
+        }
+
+        .contact-text h3 {
+            font-size: 20px;
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+
+        .contact-form {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+
+        .contact-form form {
+            background-color: #f8f9fa;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .contact-content {
+            display: flex;
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-info h3 {
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .contact-details {
+            margin-bottom: 30px;
+        }
+
+        .contact-details p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-details p i {
+            color: var(--primary);
+            margin-right: 10px;
+            font-size: 18px;
+        }
+
+        .contact-form {
+            flex: 2;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #070707;
+            color: #fff;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-column h3 {
+            color: var(--white);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary);
+            display: inline-block;
+        }
+
+        .footer-column p {
+            margin-bottom: 15px;
+        }
+
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #fff;
+            color: 070707;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+
+        .social-links a:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .quick-links ul {
+            list-style: none;
+        }
+
+        .quick-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .quick-links ul li a {
+            color: var(--light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .quick-links ul li a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 80%;
+                height: 100vh;
+                background-color: var(--primary-color);
+                flex-direction: column;
+                padding: 40px 0;
+                transition: all 0.4s ease;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                margin: 15px 0;
+                text-align: center;
+            }
+
+            .btn {
+                padding: 10px 25px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero h2 {
+                font-size: 18px;
+            }
+
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .section-title h2 {
+                font-size: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .about-image {
+                flex: 0 0 100%;
+                margin-bottom: 30px;
+            }
+
+            .about-text {
+                flex: 0 0 100%;
+            }
+
+            .service-card {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .contact-info,
+            .contact-form {
+                flex: 0 0 100%;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .about-text {
+                flex: 0 0 48%;
+                max-width: 48%;
+            }
+
+            .about-image {
+                flex: 0 0 48%;
+                max-width: 48%;
+            }
+
+            .contact-info {
+                flex: 0 0 40%;
+                max-width: 40%;
+            }
+
+            .contact-form {
+                flex: 0 0 55%;
+                max-width: 55%;
+            }
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="#" class="logo">Wilton <span>SHE</span> Consultants</a>
+            <div class="menu-toggle">☰</div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#training">Training</a></li>
+                <li><a href="#memberships">Memberships</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <!-- Hero Section -->
+    <section id="home" class="hero" style="background-image: url('/images/safety-workplace.jpg');">
+        <img src="/path/to/logo-placeholder.png" alt="Company Logo" class="hero-logo">
+        <div class="container hero-content">
+            <h1>Integrated Health & Safety Solutions</h1>
+            <h2>Transforming how organizations think about Health and Safety</h2>
+            <div class="hero-btns">
+                <a href="#services" class="btn">Our Services</a>
+                <a href="#contact" class="btn btn-outline">Contact Us</a>
+            </div>
+        </div>
+    </section>
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-img">
+                        <span>📋</span>
+                    </div>
+                    <div class="service-content">
+                        <h3>Audits & Surveys</h3>
+                        <p>Identify shortcomings within your occupancy through comprehensive audits and surveys:</p>
+                        <ul class="service-list">
+                            <li>Hazardous chemical substances</li>
+                            <li>Occupational hygiene</li>
+                            <li>General health and safety</li>
+                            <li>Fire investigation and prevention</li>
+                            <li>Safety signage and symbolic fixtures</li>
+                            <li>Building and structural assessments</li>
+                            <li>Insurance claims, audits and inspections</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-img">
+                        <span>📊</span>
+                    </div>
+                    <div class="service-content">
+                        <h3>International Standards</h3>
+                        <p>We assist clients with the development and introduction of international systems and
+                            standards:</p>
+                        <ul class="service-list">
+                            <li>Environmental Management System ISO 14001</li>
+                            <li>Occupational Health & Safety ISO 45001</li>
+                            <li>Quality Management System ISO 9001</li>
+                        </ul>
+                        <p>We offer short to long term solutions where our consultants assist on site through a
+                            methodical step-by-step process.</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-img">
+                        <span>🔍</span>
+                    </div>
+                    <div class="service-content">
+                        <h3>Risk Assessments</h3>
+                        <p>Legal requirements for workplace assessment to determine the exposure to employees, visitors
+                            and clients:</p>
+                        <ul class="service-list">
+                            <li>Fire Risks</li>
+                            <li>Environmental Risks</li>
+                            <li>Hazardous chemical risks</li>
+                            <li>Production areas</li>
+                            <li>Administrative offices</li>
+                            <li>Transportation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-img">
+                        <span>🚧</span>
+                    </div>
+                    <div class="service-content">
+                        <h3>Construction & Contractor Safety</h3>
+                        <p>We assist the principle, client, contractor and sub-contractor to develop their health and
+                            safety files and programmes to comply with all legal requirements and the health and safety
+                            specifications of the client.</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-img">
+                        <span>🔎</span>
+                    </div>
+                    <div class="service-content">
+                        <h3>Incident & Accident Investigations</h3>
+                        <p>Investigation into all types of accidents and incidents is carried out within the workplace
+                            with the aim to identify causes and to recommend steps to eliminate possible re-occurrences.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-img">
+                        <span>🚨</span>
+                    </div>
+                    <div class="service-content">
+                        <h3>Disaster Management & Emergency Planning</h3>
+                        <p>Our company will consult and guide the client through drafting and implementation of
+                            emergency evacuation and disaster management preparedness and planning.</p>
+                        <p>We also conduct forensic investigations into fire cause, origin and determination using
+                            scientific methodologies and observation – as well as expert witness representation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training Section -->
+    <section id="training" class="training">
+        <div class="container">
+            <div class="section-title">
+                <h2>Training Programs</h2>
+            </div>
+            <p>Our consultants, auditors and trainers have educational backgrounds in Fire Engineering, Investigations &
+                Technology, Safety Management, Disaster management, Building construction and Business Administration,
+                and have obtained accredited qualifications within the various disciplines.</p>
+            <p>Courses are designed specifically around the client's needs and financial implications are taken into
+                consideration.</p>
+            <br>
+            <br>
+
+            <div class="training-columns">
+                <div class="training-column">
+                    <h3>Legal Liability Training</h3>
+                    <ul>
+                        <li>Introduction to Health & Safety Act</li>
+                        <li>Health and Safety Representatives</li>
+                        <li>Advanced Health and Safety</li>
+                        <li>Introduction to SHE</li>
+                        <li>OHS Introduction</li>
+                    </ul>
+                </div>
+
+                <div class="training-column">
+                    <h3>Specialized Skills Training</h3>
+                    <ul>
+                        <li>First Aid Level 1 - 3</li>
+                        <li>Firefighting Training (Basic)</li>
+                        <li>Firefighting Training (Intermediate)</li>
+                        <li>Firefighting Training (Advanced)</li>
+                        <li>Confined Space Entry</li>
+                    </ul>
+                </div>
+
+                <div class="training-column">
+                    <h3>Regulations Specific Training</h3>
+                    <ul>
+                        <li>Hazardous Chemicals</li>
+                        <li>Construction Regulations</li>
+                        <li>Confined Space Entry</li>
+                        <li>HIRA</li>
+                        <li>PPE (personal protective equipment)</li>
+                    </ul>
+                </div>
+
+                <div class="training-column">
+                    <h3>Supervisory & Leadership Training</h3>
+                    <ul>
+                        <li>OHS for Managers and Supervisors</li>
+                        <li>Accident & Incident Investigation</li>
+                        <li>COID Act training</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px; text-align: center;">
+                <p><strong>We are an accredited service provider registered with the Department of Labour and accredited
+                        SETA's.</strong></p>
+                <p>First Aid Level 1 - 3 training Approval # - Cl 428</p>
+                <p>HWSETA – Health and Welfare Sector Education and Training Authority Accreditation # - HW592PAA0000191
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Memberships Section -->
+    <section id="memberships" class="memberships">
+        <div class="container">
+            <div class="section-title">
+                <h2>Professional Body Memberships</h2>
+            </div>
+            <div class="membership-logos">
+                <div class="membership-logo">
+                    <span>DMISA</span>
+                    <p>Disaster Management Institute of Southern Africa</p>
+                </div>
+                <div class="membership-logo">
+                    <span>IFE</span>
+                    <p>Institution of Fire Engineers</p>
+                </div>
+                <div class="membership-logo">
+                    <span>SABS</span>
+                    <p>South African Bureau of Standards Committee</p>
+                </div>
+                <div class="membership-logo">
+                    <span>SAESI</span>
+                    <p>South African Emergency Services Institution</p>
+                </div>
+                <div class="membership-logo">
+                    <span>HPCSA</span>
+                    <p>Health Professions Council of South Africa</p>
+                </div>
+                <div class="membership-logo">
+                    <span>SOB</span>
+                    <p>Security Officers Board</p>
+                </div>
+                <div class="membership-logo">
+                    <span>SAIOSH</span>
+                    <p>South African Institute of Occupational Safety and Health</p>
+                </div>
+                <div class="membership-logo">
+                    <span>IAAI</span>
+                    <p>International Association of Arson Investigations</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 50px; text-align: center;">
+                <p>We have a clear and absolute commitment to integrity and quality, this commitment is engrained in our
+                    culture, client service methodology, and in our approach to auditing and consultancy issues.</p>
+                <p>We propose regular involvement and contact throughout the year, and believe that this will assist
+                    clients in the protection of shareholder value. We will pursue this further to arrive at an
+                    efficient and acceptable scope and timetable.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch to discuss how we can help your organization</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <div class="contact-details">
+                        <p><i>📞</i> ANNIE: +27 79 085 9699</p>
+                        <p><i>📞</i> MARIO: +27 82 778 2037 (Executive Member)</p>
+                        <p><i>✉️</i> info@wiltonhealthsafety.co.za</p>
+                        <p><i>✉️</i> mario@wiltonhealthsafety.co.za</p>
+                        <p><i>🌐</i> www.wiltonhealthsafety.co.za</p>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About Wilton SHE</h3>
+                    <p>Wilton SHE Consultants is an integrated workplace safety solutions provider offering holistic
+                        Occupational Health, Safety, Quality and Environmental Service.</p>
+                    <div class="social-links">
+                        <a href="#"><span>f</span></a>
+                        <a href="#"><span>in</span></a>
+                        <a href="#"><span>t</span></a>
+                    </div>
+                </div>
+                <div class="footer-column quick-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#training">Training</a></li>
+                        <li><a href="#memberships">Memberships</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a href="#services">Audits & Surveys</a></li>
+                        <li><a href="#services">Legal Compliance</a></li>
+                        <li><a href="#services">ISO Implementation</a></li>
+                        <li><a href="#services">Risk Assessments</a></li>
+                        <li><a href="#services">Incident Investigation</a></li>
+                        <li><a href="#services">Disaster Management</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Information</h3>
+                    <p>ANNIE: +27 79 085 9699</p>
+                    <p>MARIO: +27 82 778 2037</p>
+                    <p>info@wiltonhealthsafety.co.za</p>
+                    <p>mario@wiltonhealthsafety.co.za</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Wilton SHE Consultants. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navMenu = document.getElementById('nav-menu');
+
+            mobileMenuBtn.addEventListener('click', function () {
+                navMenu.classList.toggle('active');
+            });
+
+            // Close mobile menu when clicking on a nav link
+            const navLinks = document.querySelectorAll('nav ul li a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    navMenu.classList.remove('active');
+                });
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Form submission handling
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    alert('Thank you for your message. We will get back to you soon!');
+                    contactForm.reset();
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
